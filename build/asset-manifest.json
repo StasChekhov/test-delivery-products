@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/contacts_phonebook/static/css/main.54e13b11.css",
+    "main.js": "/contacts_phonebook/static/js/main.7460c2d1.js",
+    "index.html": "/contacts_phonebook/index.html",
+    "main.54e13b11.css.map": "/contacts_phonebook/static/css/main.54e13b11.css.map",
+    "main.7460c2d1.js.map": "/contacts_phonebook/static/js/main.7460c2d1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54e13b11.css",
+    "static/js/main.7460c2d1.js"
+  ]
+}

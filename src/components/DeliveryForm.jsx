@@ -142,8 +142,8 @@ export default function DeliveryForm({ formData, isChange, onClose }) {
         type="radio"
         id="test3"
         name="radio-group"
-        checked={radio === "Apple"}
-        onChange={() => setRadio("Apple")}
+        checked={radio === "Other"}
+        onChange={() => setRadio("Other")}
        />
        <label for="test3">Other</label>
       </p>

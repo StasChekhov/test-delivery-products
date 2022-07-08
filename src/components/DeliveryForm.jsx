@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import s from "./Delivery.module.css";
 import { nanoid } from "@reduxjs/toolkit";
-import { useDispatch } from "react-redux";
-import {
- useAddDeliveryMutation,
- useGetDeliveryQuery,
- useUpdateDeliveryMutation,
- useGetDeliveryByIdQuery,
-} from "redux/deliveryApi";
+// import { useDispatch } from "react-redux";
+import { useAddDeliveryMutation, useGetDeliveryQuery } from "redux/deliveryApi";
+import * as API from "../api/api";
 
 export default function DeliveryForm({ formData, isChange, onClose }) {
  //  const dispatch = useDispatch();
@@ -23,8 +19,9 @@ export default function DeliveryForm({ formData, isChange, onClose }) {
 
  const { data = [], error, isLoading, refetch } = useGetDeliveryQuery();
  const [addContact, result] = useAddDeliveryMutation(data);
- const {} = useGetDeliveryByIdQuery(formData.id);
- const [updateMaterial] = useUpdateDeliveryMutation();
+ //  const {} = useGetDeliveryByIdQuery(formData.id);
+ //  const { updateMaterial } = useUpdateDeliveryMutation();
+ //  console.log(updateMaterial);
 
  const onSaveContact = async () => {
   const contact = {
@@ -46,17 +43,17 @@ export default function DeliveryForm({ formData, isChange, onClose }) {
 
  const onUpdateMaterial = async (fields) => {
   try {
-   await updateMaterial({ id: formData.id, ...fields });
-  } catch (error) {
-   console.log(error);
-  }
+   await API.updateMaterial({ id: formData.id, ...fields });
+  } catch (error) {}
  };
 
- const handleSubmit = (e) => {
+ const handleSubmit = async (e) => {
   e.preventDefault();
   if (isChange) {
    // изменерие контакta
-   onUpdateMaterial();
+   await onUpdateMaterial({ name, from, to, radio, time, comment });
+   refetch();
+
    onClose();
   } else {
    onSaveContact();

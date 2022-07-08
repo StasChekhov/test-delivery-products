@@ -33,10 +33,3 @@ const ContactItems = ({ id, name, from, to, radio, time, comment, handle }) => {
 };
 // onClick={() => dispatch(remove({ id }))}
 export default ContactItems;
-
-// ContactItems.propTypes = {
-//  id: PropTypes.string.isRequired,
-//  name: PropTypes.string.isRequired,
-//  number: PropTypes.string.isRequired,
-//  //   onDelete: PropTypes.func.isRequired,
-// };
